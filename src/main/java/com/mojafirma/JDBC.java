@@ -10,11 +10,11 @@ public class JDBC {
 
 
         // com.mojafirma.JDBC driver name and database URL
-        static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        static final String DB_URL = "jdbc:mysql://localhost:3306/j1b";
+//        static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+//        static final String DB_URL = "jdbc:mysql://localhost:3306/j1b";
         // Database credentials
-        static final String USER = "root";
-        static final String PASS = "";
+//        static final String USER = "root";
+//        static final String PASS = "";
 
     public static void showData() {
         Connection conn = null;
@@ -24,7 +24,7 @@ public class JDBC {
             Class.forName("com.mysql.jdbc.Driver");
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            conn = Database.getConnection();
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();

@@ -27,7 +27,7 @@ public class Main {
                 break;
             }
             default: {
-                System.out.println("Błędna dana");
+                System.out.println("Błędne dane");
                 break;
             }
         }

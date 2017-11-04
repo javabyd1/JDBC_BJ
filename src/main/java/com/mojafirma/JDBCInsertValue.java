@@ -9,11 +9,11 @@ import java.sql.Statement;
 public class JDBCInsertValue {
 
     // com.mojafirma.JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/j1b";
+//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+//    static final String DB_URL = "jdbc:mysql://localhost:3306/j1b";
     // Database credentials
-    static final String USER = "root";
-    static final String PASS = "";
+//    static final String USER = "root";
+//    static final String PASS = "";
 
     public static void insertData(String name, String street, String number, String nip) {
         Connection conn = null;
@@ -23,16 +23,15 @@ public class JDBCInsertValue {
             Class.forName("com.mysql.jdbc.Driver");
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            conn = Database.getConnection();
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
+
             String sql;
-            sql = "INSERT INTO firmy (id_firmy, nazwa, ulica, numer_domu, numer_mieszkania, nip) VALUES ( 52 , '"+ name +"', '"+street+"', '"+number+"', NULL, '"+ nip +"')";
+            sql = "INSERT INTO firmy (id_firmy, nazwa, ulica, numer_domu, numer_mieszkania, nip) VALUES ( 53 , '"+ name +"', '"+street+"', '"+number+"', NULL, '"+ nip +"')";
             stmt.executeUpdate(sql);
-
             //STEP 6: Clean-up environment
-
             stmt.close();
             conn.close();
         } catch (SQLException se) {
