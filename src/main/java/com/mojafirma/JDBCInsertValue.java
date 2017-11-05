@@ -1,19 +1,11 @@
 package com.mojafirma;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBCInsertValue {
-
-    // com.mojafirma.JDBC driver name and database URL
-//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-//    static final String DB_URL = "jdbc:mysql://localhost:3306/j1b";
-    // Database credentials
-//    static final String USER = "root";
-//    static final String PASS = "";
 
     public static void insertData(String name, String street, String number, String nip) {
         Connection conn = null;
@@ -22,14 +14,23 @@ public class JDBCInsertValue {
             //STEP 2: Register com.mojafirma.JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
             //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
             conn = Database.getConnection();
             //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            System.out.println("Tworzenie wyrażenia...");
             stmt = conn.createStatement();
 
+            int company_id = 0;
+            String sql1;
+            sql1 = "SELECT id_firmy FROM firmy ORDER BY id_firmy DESC LIMIT 1";
+            ResultSet rs = stmt.executeQuery(sql1);
+            //STEP 5: Extract data from result set
+            while (rs.next()) {
+                //Retrieve by column name
+                company_id = rs.getInt("id_firmy");
+            }
+
             String sql;
-            sql = "INSERT INTO firmy (id_firmy, nazwa, ulica, numer_domu, numer_mieszkania, nip) VALUES ( 53 , '"+ name +"', '"+street+"', '"+number+"', NULL, '"+ nip +"')";
+            sql = "INSERT INTO firmy (id_firmy, nazwa, ulica, numer_domu, numer_mieszkania, nip) VALUES ("+(company_id+1) +" , '"+ name +"', '"+street+"', '"+number+"', NULL, '"+ nip +"')";
             stmt.executeUpdate(sql);
             //STEP 6: Clean-up environment
             stmt.close();
@@ -54,6 +55,6 @@ public class JDBCInsertValue {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
+//        System.out.println("Goodbye!");
     }//end main
 }//end FirstExample

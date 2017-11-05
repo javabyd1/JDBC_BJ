@@ -1,20 +1,11 @@
 package com.mojafirma;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBC {
-
-
-        // com.mojafirma.JDBC driver name and database URL
-//        static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-//        static final String DB_URL = "jdbc:mysql://localhost:3306/j1b";
-        // Database credentials
-//        static final String USER = "root";
-//        static final String PASS = "";
 
     public static void showData() {
         Connection conn = null;
@@ -23,10 +14,9 @@ public class JDBC {
             //STEP 2: Register com.mojafirma.JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
             //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
             conn = Database.getConnection();
             //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            System.out.println("Tworzenie wyrażenia...");
             stmt = conn.createStatement();
             String sql;
             sql = "SELECT nazwa, ulica, numer_domu, nip FROM firmy";
@@ -67,6 +57,6 @@ public class JDBC {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
+//        System.out.println("Goodbye!");
     }//end main
 }//end FirstExample
