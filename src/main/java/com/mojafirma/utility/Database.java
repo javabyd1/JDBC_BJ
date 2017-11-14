@@ -1,4 +1,4 @@
-package com.mojafirma;
+package com.mojafirma.utility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ public class Database {
     private final static String DATABASE = "j1b?useSSL=false&useJDBCCompliantTimezoneShift=true" +
             "&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final static String USER     = "root";
-    private final static String PASSWORD = "";
+    private final static String PASSWORD = "1234";
     private final static String PORT     = "3306";
     private final static String DRIVER   = "com.mysql.jdbc.Driver";
 
