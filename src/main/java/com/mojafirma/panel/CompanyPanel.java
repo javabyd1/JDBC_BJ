@@ -21,14 +21,14 @@ public class CompanyPanel {
                 break;
             }
             case 2: {
-                System.out.println("Wprowadź miasto, ulicę, numer domu i numer mieszkania");
+                System.out.println("Wprowadź nazwę firmy, ulicę, numer domu i numer mieszkania");
                 Scanner scanner = new Scanner(System.in);
-                String city = scanner.nextLine();
+                String name = scanner.nextLine();
                 String street = scanner.nextLine();
                 String home_number = scanner.nextLine();
                 String flat_number = scanner.nextLine();
 
-                jdbcCompanyUtility.insertData(city, street, home_number, flat_number);
+                jdbcCompanyUtility.insertData(name, street, home_number, flat_number);
                 break;
             }
             case 3: {

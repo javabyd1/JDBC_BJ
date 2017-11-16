@@ -20,14 +20,14 @@ public class AdressPanel {
                 break;
             }
             case 2: {
-                System.out.println("Wprowadź miasto, ulicę, nr domu i NIP firmy");
+                System.out.println("Wprowadź miasto, ulicę, nr domu i nr mieszkania");
                 Scanner scanner = new Scanner(System.in);
                 String city = scanner.nextLine();
                 String street = scanner.nextLine();
-                String number = scanner.nextLine();
-                String nip = scanner.nextLine();
+                String homeNumer = scanner.nextLine();
+                String flatNumber = scanner.nextLine();
 
-                jdbcAdressUtility.insertData(city, street, number, nip);
+                jdbcAdressUtility.insertData(city, street, homeNumer, flatNumber);
                 break;
             }
             case 3: {
